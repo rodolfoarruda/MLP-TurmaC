@@ -160,7 +160,7 @@ class FriendNetwork(object):
 
 if __name__ == '__main__':
 
-    friend_network = FriendNetwork(100000, 31622777)
+    friend_network = FriendNetwork(100000, 2000000000)
 
     s_time = time.time()
     separation_degree = friend_network.get_separation_degree()
