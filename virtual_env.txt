@@ -1,0 +1,4 @@
+virtualenv --python=/usr/bin/python3 venv
+
+
+source venv/bin/activate  

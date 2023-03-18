@@ -1,33 +1,44 @@
+import numpy as np
+
 class Pilha:
-    def __init__(self):
-        self.items = []
-    
-    def empilhar(self, item):
-        self.items.append(item)
-    
-    def desempilhar(self):
-        return self.items.pop()
-    
-    def ver_topo(self):
-        return self.items[-1] if not self.esta_vazia() else None
-    
-    def esta_vazia(self):
-        return len(self.items) == 0
 
+  def __init__(self, capacidade):
+    self.__capacidade = capacidade
+    self.__topo = -1
+    self.__valores = np.empty(self.__capacidade, dtype=int)
 
-# Criando uma nova pilha
-pilha = Pilha()
+  def __pilha_cheia(self):
+    if self.__topo == self.__capacidade - 1:
+      return True
+    else:
+      return False
 
-# Adicionando itens à pilha
-pilha.empilhar(10)
-pilha.empilhar(20)
-pilha.empilhar(30)
+  def __pilha_vazia(self):
+    if self.__topo == -1:
+      return True
+    else:
+      return False
 
-# Verificando o topo da pilha
-print(pilha.ver_topo()) # 30
+  def empilhar(self, valor):
+    if self.__pilha_cheia():
+      print('A pilha está cheia')
+    else:
+      self.__topo += 1
+      self.__valores[self.__topo] = valor
 
-# Removendo um item da pilha
-pilha.desempilhar()
+  def desempilhar(self):
+    if self.__pilha_vazia():
+      print('A pilha está vazia')
+    else:
+      self.__topo -= 1
 
-# Verificando o topo da pilha novamente
-print(pilha.ver_topo()) # 20
+  def ver_topo(self):
+    if self.__topo != -1:
+      return self.__valores[self.__topo]
+    else:
+      return -1
+  
+  
+pilha = Pilha(5)
+
+pilha.ver_topo()
