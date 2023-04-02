@@ -1,7 +1,6 @@
-from .interface import IRota
-
+from .interface import *
 
 class RotaSegura(IRota):
     
     def atualiza_nivel_seguranca(self):
-        print("Rota segura!")
+        print("O status da rota é:  segura!")
