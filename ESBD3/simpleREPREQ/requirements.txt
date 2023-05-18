@@ -1,0 +1,15 @@
+joblib==1.2.0
+jsons==1.6.3
+numpy==1.24.3
+pandas==2.0.1
+pickle5==0.0.11
+python-dateutil==2.8.2
+pytz==2023.3
+pyzmq==25.0.2
+scikit-learn==1.2.2
+scipy==1.10.1
+six==1.16.0
+threadpoolctl==3.1.0
+typish==1.9.3
+tzdata==2023.3
+zmq==0.0.0
