@@ -1,0 +1,52 @@
+version: '3.1'
+services:
+  w1:
+    build: ./worker/
+    environment:
+      - ZMQ_WVENTILATOR_ADDRESS=tcp://localhost:5557
+      - ZMQ_WSINK_ADDRESS=tcp://localhost:5558
+      - ZMQ_SINK_ADDRESS=tcp://*:5558
+      - ZMQ_VENTILATOR_ADDRESS=tcp://*:5557
+    network_mode: "host"
+    volumes:
+    - type: bind
+      source: /Users/rarruda/Documents/GitHub/ESBD3_Exe1/projeto1/dados
+      target: /dados
+      bind:
+        create_host_path: true
+  w2:
+    build: ./worker/
+    environment:
+      - ZMQ_WVENTILATOR_ADDRESS=tcp://localhost:5557
+      - ZMQ_WSINK_ADDRESS=tcp://localhost:5558
+      - ZMQ_SINK_ADDRESS=tcp://*:5558
+      - ZMQ_VENTILATOR_ADDRESS=tcp://*:5557
+    network_mode: "host"
+    volumes:
+    - type: bind
+      source: /Users/rarruda/Documents/GitHub/ESBD3_Exe1/projeto1/dados
+      target: /dados
+      bind:
+        create_host_path: true
+  sink1:
+    build: ./sink/
+    environment:
+      - ZMQ_WVENTILATOR_ADDRESS=tcp://localhost:5557
+      - ZMQ_WSINK_ADDRESS=tcp://localhost:5558
+      - ZMQ_SINK_ADDRESS=tcp://*:5558
+      - ZMQ_VENTILATOR_ADDRESS=tcp://*:5557
+    network_mode: "host"
+  vent1:
+    build: ./ventilator/
+    environment:
+      - ZMQ_WVENTILATOR_ADDRESS=tcp://localhost:5557
+      - ZMQ_WSINK_ADDRESS=tcp://localhost:5558
+      - ZMQ_SINK_ADDRESS=tcp://*:5558
+      - ZMQ_VENTILATOR_ADDRESS=tcp://*:5557
+    network_mode: "host"
+
+
+
+
+
+
